@@ -1,0 +1,96 @@
+Title: VCSC SRL Screen & Assist Tool 
+Author: Landon Shimel
+Before: <link rel="stylesheet" type="text/css" href="https://suffolklitlab.org/howto/qna/style/style.css">
+<div id="icon" style="background-size: 110px 99px;background-image: url('https://media2.giphy.com/media/TFCpdvE5GukO3nVbhq/giphy.gif');"></div>
+<h2 style="text-align:center;">Virtual Court Service Center Screen & Assist Tool</h2>
+<p><b>This is a <a href="https://www.codingthelaw.org/#mission">class project</a>. You should not rely on it as a verified source of legal information!</b></p>
+<p>Answer the following questions to get assistance with your particular legal need</p>
+
+
+Q(1): What type of assistance are you seeking?
+A: I want to look up my case
+	Q(1.1):GOTO:2
+A: I am looking for legal representation or advice
+	Q(1.2):GOTO:3    
+A: I need help with court forms and/or I need to know what my options are regarding a legal issue
+	Q(1.3):GOTO:4
+
+Q(2):You can look up your case information on MassCourts.org OR Read Instructions on how to Use MassCourts.org by clicking below:
+A[https://www.masscourts.org/eservices/home.page.3]: Look up My Case On MassCourts.org
+A[https://www.mass.gov/info-details/how-to-search-court-dockets]: Instructions on how to Use MassCourts.org
+	Q(2.2): Thank you for using the VCSC's Screen & Assist Tool, best of luck solving your legal need :)  
+
+Q(3):The Court Service Centers do not provide legal advice or representation. Here are some other resources that may be able to assist you:
+A[https://masslrf.org/en/home]: Massachusetts Legal Research Finder (Contact information for programs that may be able to help you for free or at low cost after you answer a few questions about your case)
+A[https://www.mass.gov/info-details/lawyer-for-the-day-programs]: Lawyer for the Day Programs (Basic legal advice, help you understand relevant laws and your rights, and assist you in filling out court forms)
+A[https://www.mass.gov/info-details/limited-assistance-representation-information-for-the-public]: Limited Assistance Representation (Get legal help for just part of a case for a fee) 
+A[https://www.masslawhelp.com/]: Massachusetts Bar Association Free Lawyer Referral Service
+A[https://www.mass.gov/info-details/finding-a-lawyer]: Tips & Resources to find a Lawyer
+A[https://lawyers.findlaw.com/lawyer/practicestate/family-law/massachusetts]: Directory of Massachusetts Family Law Lawyers
+	Q(3.6): Thank you for using the VCSC's Screen & Assist Tool, best of luck solving your legal need :) 
+
+Q(4): Which type of legal issue do you need assistance with today?
+A: Divorce
+	Q(4.1): Are you looking to file for divorce or have you already filed?
+	A: New Filing for Divorce
+		Q(4.1.1): Are you filing for divorce with your spouse or against your spouse?
+		A: We are filing together (jointly, 1A)
+			Q(4.1.1.1):GOTO:6
+		A: I am filing against my spouse (individually, 1B)
+			Q(4.1.1.2):GOTO:5
+	A: Already Filed for Divorce
+		Q(4.1.2):GOTO:5 
+A: Probating an Estate
+	Q(4.2): Are you looking for assistance with an estate valued under $25,000 (excluding the value of a car)?
+	A: Yes
+		Q(4.2.1): Has it been 30 or more days since date of death?
+		A: Yes
+			Q(4.2.1.1):GOTO:5
+		A: No
+			Q(4.2.1.2):GOTO:7
+	A: No
+		Q(4.2.2):GOTO:7 
+A: Child Custody, Child Support, Parenting Time, or Name Change
+	Q(4.3):GOTO:5
+A: Civil Commitments, Abuse Prevention/Restraining Orders/Harassment Orders
+	Q(4.4):GOTO:5
+A: Small Claims
+	Q(4.5): Is the claim for an amount less than $7,000?
+	A: Yes
+		Q(4.5.1):GOTO:5
+	A: No
+		Q(4.5.2):GOTO:7
+A: Guardianship of a Minor (ie Custody of a Grandchild)
+	Q(4.6):GOTO:5
+A: Guardianship of an Adult
+	Q(4.7):GOTO:5
+A: Landlord/Tenant Matters
+A: My Type of Legal Issue Isn't Listed Here
+	Q(4.10):GOTO:6
+
+
+Q(5): The Court Service Center may be able to help you with your legal issue.
+A[https://www.mass.gov/doc/can-the-court-service-center-assist-me-with-the-type-of-case-i-have/download]: See what you will need for assistance
+A[https://www.mass.gov/info-details/learn-about-court-service-centers]: Additional Info about the Court Service Center
+A[https://www.mass.gov/info-details/learn-about-the-virtual-court-service-center#how-do-i-connect-with-the-virtual-court-service-center?-]: Connect with the Virtual Court Service Center
+	Q(5.3): Thank you for using the VCSC's Screen & Assist Tool, best of luck solving your legal need :) 
+
+Q(6): The Court Service Centers do not provide legal advice, representation, or assistance with the type of case you are trying to file.
+Please see below for other resources that may be able to assist: 
+A[https://masslrf.org/en/home]: Massachusetts Legal Resource Finder (Contact information for programs that may be able to help you for free or at low cost after you answer a few questions about your case)
+A[https://www.mass.gov/info-details/lawyer-for-the-day-programs]: Lawyer for the Day Programs (Basic legal advice, help you understand relevant laws and your rights, and assist you in filling out court forms)
+A[https://www.mass.gov/info-details/limited-assistance-representation-information-for-the-public]: Limited Assistance Representation (Get legal help for just part of a case for a fee) 
+A[https://www.masslawhelp.com/]: Massachusetts Bar Association Free Lawyer Referral Service
+A[https://www.mass.gov/info-details/finding-a-lawyer]: Tips & Resources to find a Lawyer
+A[https://lawyers.findlaw.com/lawyer/practicestate/family-law/massachusetts]: Directory of Massachusetts Family Law Lawyers
+	Q(6.6): Thank you for using the VCSC's Screen & Assist Tool, best of luck solving your legal need :) 
+
+Q(7): The Court Service Centers do not provide legal advice, representation, or assistance with the type of case you are trying to file.
+Please see below for other resources that may be able to assist:
+A[https://masslrf.org/en/home]: Massachusetts Legal Resource Finder (Contact information for programs that may be able to help you for free or at low cost after you answer a few questions about your case)
+A[https://www.mass.gov/info-details/lawyer-for-the-day-programs]: Lawyer for the Day Programs (Basic legal advice, help you understand relevant laws and your rights, and assist you in filling out court forms)
+A[https://www.mass.gov/info-details/limited-assistance-representation-information-for-the-public]: Limited Assistance Representation (Get legal help for just part of a case for a fee) 
+A[https://www.masslawhelp.com/]: Massachusetts Bar Association Free Lawyer Referral Service
+A[https://www.mass.gov/info-details/finding-a-lawyer]: Tips & Resources to find a Lawyer
+	Q(7.5): Thank you for using the VCSC's Screen & Assist Tool, best of luck solving your legal need :) 
+

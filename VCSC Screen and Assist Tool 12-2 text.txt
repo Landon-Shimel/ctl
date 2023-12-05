@@ -1,0 +1,205 @@
+Title: VCSC SRL Screen & Assist Tool 
+Author: Landon Shimel
+Before: <link rel="stylesheet" type="text/css" href="https://suffolklitlab.org/howto/qna/style/style.css">
+<div id="icon" style="background-size: 110px 99px;background-image: url('https://media2.giphy.com/media/TFCpdvE5GukO3nVbhq/giphy.gif');"></div>
+<h2 style="text-align:center;">Virtual Court Service Center Screen & Assist Tool</h2>
+<p><b>This is a <a href="https://www.codingthelaw.org/#mission">class project</a>. You should not rely on it as a verified source of legal information!</b></p>
+<p>Answer the following questions to get assistance with your particular legal need</p>
+
+
+Q(1): What type of assistance are you seeking?
+A: I want to look up my case
+	Q(1.1):GOTO:lookup
+A: I am looking for legal representation or advice
+	Q(1.2):GOTO:lawyer    
+A: I need help with court forms and/or I need to know what my options are regarding a legal issue
+	Q(1.3):GOTO:category
+
+Q(lookup):You can look up your case information on MassCourts.org OR Read Instructions on how to Use MassCourts.org by clicking below:
+A[https://www.masscourts.org/eservices/home.page.3]: Look up My Case On MassCourts.org
+	Q(2.1):GOTO:goodbye
+A[https://www.mass.gov/info-details/how-to-search-court-dockets]: Instructions on how to Use MassCourts.org
+	Q(2.2):GOTO:goodbye
+
+Q(lawyer):The Court Service Centers do not provide legal advice or representation. Here are some other resources that may be able to assist you:
+A[https://masslrf.org/en/home]: Massachusetts Legal Research Finder (Contact information for programs that may be able to help you for free or at low cost after you answer a few questions about your case)
+	Q(3.1):GOTO:goodbye
+A[https://www.mass.gov/info-details/lawyer-for-the-day-programs]: Lawyer for the Day Programs (Basic legal advice, help you understand relevant laws and your rights, and assist you in filling out court forms)
+	Q(3.2):GOTO:goodbye
+A[https://courtformsonline.org/]: Court Forms Online MassAccess (Describe your legal issue and this site provides court forms and self-help materials)
+	Q(3.3):GOTO:goodbye
+A[https://www.mass.gov/info-details/limited-assistance-representation-information-for-the-public]: Limited Assistance Representation (Get legal help for just part of a case for a fee)
+	Q(3.4):GOTO:goodbye
+A[https://www.masslawhelp.com/]: Massachusetts Bar Association Free Lawyer Referral Service
+	Q(3.5):GOTO:goodbye
+A[https://www.mass.gov/info-details/finding-a-lawyer]: Tips & Resources to find a Lawyer
+	Q(3.6):GOTO:goodbye
+A[https://lawyers.findlaw.com/lawyer/practicestate/family-law/massachusetts]: Directory of Massachusetts Family Law Lawyers
+	Q(3.7):GOTO:goodbye
+
+Q(category): Which type of legal issue do you need assistance with today?
+A: Divorce
+	Q(4.1): Are you looking to file for divorce or have you already filed?
+	A: New Filing for Divorce
+		Q(4.1.1): Are you filing for divorce with your spouse or against your spouse?
+		A: We are filing together (jointly, 1A)
+			Q(4.1.1.1):GOTO:divorce
+		A: I am filing against my spouse (individually, 1B)
+			Q(4.1.1.2):GOTO:eligible
+	A: Already Filed for Divorce
+		Q(4.1.2):GOTO:eligible 
+A: Probating an Estate
+	Q(4.2): Are you looking for assistance with an estate valued under $25,000 (excluding the value of a car)?
+	A: Yes
+		Q(4.2.1): Has it been 30 or more days since date of death?
+		A: Yes
+			Q(4.2.1.1):GOTO:eligible
+		A: No
+			Q(4.2.1.2):GOTO:estate
+	A: No
+		Q(4.2.2):GOTO:estate 
+A: Child Custody, Child Support, Parenting Time, or Name Change
+	Q(4.3):GOTO:eligible
+A: Civil Commitments, Abuse Prevention, Restraining Orders, or Harassment Orders
+	Q(4.4):GOTO:eligible
+A: Small Claims
+	Q(4.5): Is the claim for an amount less than $7,000?
+	A: Yes
+		Q(4.5.1):GOTO:eligible
+	A: No
+		Q(4.5.2):GOTO:small
+A: Guardianship of a Minor (ie Custody of a Grandchild)
+	Q(4.6):GOTO:eligible
+A: Guardianship of an Adult
+	Q(4.7):GOTO:eligible
+A: Housing & Landlord/Tenant Matters
+	Q(4.8): Are you a tenant or a landlord?
+	A: Tenant
+		Q(4.8.1): Are you filing a case against your landlord?
+		A: Yes
+			Q(4.8.1.1):GOTO:eligible
+		A: No
+			Q(4.8.1.2): Are you responding to a complaint from your landlord?
+			A: Yes
+				Q(4.8.1.2.1):GOTO:eligible
+			A: No
+				Q(4.8.1.2.2):GOTO:housing
+	A: Landlord
+		Q(4.8.2): Are you filing a case against your tenant?
+		A: Yes
+			Q(4.8.2.1):GOTO:eligible
+		A: No
+			Q(4.8.2.2): Are you responding to a complaint filed by your tenant?
+			A: Yes
+				Q(4.8.2.2.1):GOTO:eligible
+			A: No
+				Q(4.8.2.2.2):GOTO:housing
+A: My Type of Legal Issue Isn't Listed Here
+	Q(4.10):GOTO:ineligible
+
+
+Q(eligible): The Court Service Center may be able to help you with your legal issue.
+A[https://www.mass.gov/doc/can-the-court-service-center-assist-me-with-the-type-of-case-i-have/download]: See what you will need for assistance
+	Q(5.1):GOTO:goodbye
+A[https://www.mass.gov/info-details/learn-about-court-service-centers]: Additional Info about the Court Service Center
+	Q(5.2):GOTO:goodbye
+A[https://www.mass.gov/info-details/learn-about-the-virtual-court-service-center#how-do-i-connect-with-the-virtual-court-service-center?-]: Connect with the Virtual Court Service Center
+	Q(5.3):GOTO:goodbye
+
+Q(divorce): The Court Service Centers do not provide legal advice, representation, or assistance with the type of case you are trying to file.
+Please see below for other resources that may be able to assist: 
+A[https://masslrf.org/en/home]: Massachusetts Legal Resource Finder (Contact information for programs that may be able to help you for free or at low cost after you answer a few questions about your case)
+	Q(6.1):GOTO:goodbye
+A[https://courtformsonline.org/]: Court Forms Online MassAccess (Describe your legal issue and this site provides court forms and self-help materials)
+	Q(6.2):GOTO:goodbye
+A[https://www.mass.gov/info-details/lawyer-for-the-day-programs]: Lawyer for the Day Programs (Basic legal advice, help you understand relevant laws and your rights, and assist you in filling out court forms)
+	Q(6.3):GOTO:goodbye
+A[https://www.mass.gov/info-details/limited-assistance-representation-information-for-the-public]: Limited Assistance Representation (Get legal help for just part of a case for a fee)
+	Q(6.4):GOTO:goodbye
+A[https://www.masslawhelp.com/]: Massachusetts Bar Association Free Lawyer Referral Service
+	Q(6.5):GOTO:goodbye
+A[https://communitylegal.org/]: Western Community Legal Aid for Western and Central Massachusetts
+	Q(6.6):GOTO:goodbye
+A[https://www.mass.gov/info-details/finding-a-lawyer]: Tips & Resources to find a Lawyer
+	Q(6.7):GOTO:goodbye
+A[https://lawyers.findlaw.com/lawyer/practicestate/family-law/massachusetts]: Directory of Massachusetts Family Law Lawyers
+	Q(6.8):GOTO:goodbye
+A[https://www.masslegalhelp.org/domestic-violence/wdwgfh9/divorce]: How do I file for Divorce? - MassLegalHelp
+	Q(6.9):GOTO:goodbye
+
+Q(estate): The Court Service Centers do not provide legal advice, representation, or assistance with the type of case you are trying to file.
+Please see below for other resources that may be able to assist:
+A[https://masslrf.org/en/home]: Massachusetts Legal Resource Finder (Contact information for programs that may be able to help you for free or at low cost after you answer a few questions about your case)
+	Q(7.1):GOTO:goodbye
+A[https://courtformsonline.org/]: Court Forms Online MassAccess (Describe your legal issue and this site provides court forms and self-help materials)
+	Q(7.2):GOTO:goodbye
+A[https://www.mass.gov/info-details/lawyer-for-the-day-programs]: Lawyer for the Day Programs (Basic legal advice, help you understand relevant laws and your rights, and assist you in filling out court forms)
+	Q(7.3):GOTO:goodbye
+A[https://www.mass.gov/info-details/limited-assistance-representation-information-for-the-public]: Limited Assistance Representation (Get legal help for just part of a case for a fee) 
+	Q(7.4): GOTO:goodbye
+A[https://www.masslawhelp.com/]: Massachusetts Bar Association Free Lawyer Referral Service
+	Q(7.5):GOTO:goodbye
+A[https://www.mass.gov/info-details/finding-a-lawyer]: Tips & Resources to find a Lawyer
+	Q(7.6):GOTO:goodbye
+A[https://www.mass.gov/doc/checklist-for-voluntary-administration-mpc-965/download]: Voluntary Administration Required Forms Checklist
+
+Q(small): The Court Service Centers do not provide legal advice, representation, or assistance with the type of case you are trying to file.
+Please see below for other resources that may be able to assist:
+A[https://masslrf.org/en/home]: Massachusetts Legal Resource Finder (Contact information for programs that may be able to help you for free or at low cost after you answer a few questions about your case)
+	Q(8.1):GOTO:goodbye
+A[https://courtformsonline.org/]: Court Forms Online MassAccess (Describe your legal issue and this site provides court forms and self-help materials)
+	Q(8.2):GOTO:goodbye
+A[https://www.mass.gov/info-details/lawyer-for-the-day-programs]: Lawyer for the Day Programs (Basic legal advice, help you understand relevant laws and your rights, and assist you in filling out court forms)
+	Q(8.3):GOTO:goodbye
+A[https://www.mass.gov/info-details/limited-assistance-representation-information-for-the-public]: Limited Assistance Representation (Get legal help for just part of a case for a fee) 
+	Q(8.4): GOTO:goodbye
+A[https://www.masslawhelp.com/]: Massachusetts Bar Association Free Lawyer Referral Service
+	Q(8.5):GOTO:goodbye
+A[https://www.mass.gov/info-details/finding-a-lawyer]: Tips & Resources to find a Lawyer
+	Q(8.6):GOTO:goodbye
+A[https://www.mass.gov/files/documents/2016/08/ol/small-claims-what-you-need-to-know.pdf]: What you Need to Know for Small Claims in MA
+	Q(8.7):GOTO:goodbye
+A[https://www.mass.gov/small-claims]: Eligibility to File Small Claims
+	Q(8.8):GOTO:goodbye
+
+Q(housing): The Court Service Centers do not provide legal advice, representation, or assistance with the type of case you are trying to file.
+Please see below for other resources that may be able to assist:
+A[https://masslrf.org/en/home]: Massachusetts Legal Resource Finder (Contact information for programs that may be able to help you for free or at low cost after you answer a few questions about your case)
+	Q(9.1):GOTO:goodbye
+A[https://courtformsonline.org/]: Court Forms Online MassAccess (Describe your legal issue and this site provides court forms and self-help materials)
+	Q(9.2):GOTO:goodbye
+A[https://www.mass.gov/info-details/lawyer-for-the-day-programs]: Lawyer for the Day Programs (Basic legal advice, help you understand relevant laws and your rights, and assist you in filling out court forms)
+	Q(9.3):GOTO:goodbye
+A[https://www.masslawhelp.com/]: Massachusetts Bar Association Free Lawyer Referral Service
+	Q(9.4):GOTO:goodbye
+A[https://www.gbls.org/MADE]: Massachusetts Defense for Eviction (MADE): Self Guided Eviction Help 
+	Q(9.5):GOTO:goodbye
+A[https://www.masslegalhelp.org/housing/lt1-chapter-12-evictions]: Eviction Process Info from MassLegalHelp
+	Q(9.6):GOTO:goodbye
+A[https://evictionlegalhelp.org/]: Eviction Help for Tenants & Landlords
+	Q(9.7):GOTO:goodbye
+A[https://www.mass.gov/guides/housing-appeals-guide]: Guide to Housing Appeal
+	Q(9.8):GOTO:goodbye
+A[https://courtformsonline.org/housing/]: Housing Court forms & Additional Tools
+	Q(9.10):GOTO:goodbye
+
+Q(ineligible): The Court Service Centers do not provide legal advice, representation, or assistance with the type of case you are trying to file.
+Please see below for other resources that may be able to assist:
+A[https://masslrf.org/en/home]: Massachusetts Legal Resource Finder (Contact information for programs that may be able to help you for free or at low cost after you answer a few questions about your case)
+	Q(10.1):GOTO:goodbye
+A[https://courtformsonline.org/]: Court Forms Online MassAccess (Describe your legal issue and this site provides court forms and self-help materials)
+	Q(10.2):GOTO:goodbye
+A[https://www.mass.gov/info-details/lawyer-for-the-day-programs]: Lawyer for the Day Programs (Basic legal advice, help you understand relevant laws and your rights, and assist you in filling out court forms)
+	Q(10.3):GOTO:goodbye
+A[https://www.mass.gov/info-details/limited-assistance-representation-information-for-the-public]: Limited Assistance Representation (Get legal help for just part of a case for a fee) 
+	Q(10.4): GOTO:goodbye
+A[https://www.masslawhelp.com/]: Massachusetts Bar Association Free Lawyer Referral Service
+	Q(10.5):GOTO:goodbye
+A[https://www.lawhelp.org/]: LawHelp.org - find your local legal aid office
+	Q(10.6):GOTO:goodbye
+A[https://www.mass.gov/info-details/finding-a-lawyer]: Tips & Resources to find a Lawyer
+	Q(10.7):GOTO:goodbye
+
+
+
+Q(goodbye): Thank you for using the VCSC's Screen & Assist Tool, best of luck solving your legal need :)
